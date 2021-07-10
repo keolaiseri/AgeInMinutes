@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     val btnDatePicker = findViewById<Button>(R.id.btnDatePicker)
     val tvSelectedDate = findViewById<TextView>(R.id.tvSelectedDate)
+    val tvSelectedDateInMinutes = findViewById<TextView>(R.id.tvSelectedDateInMinutes)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,17 @@ class MainActivity : AppCompatActivity() {
                 val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
 
                 val theDate = sdf.parse(selectedDate)
+
+                val selectedDateInMinutes = theDate!!.time / 60000
+
+                val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
+
+                val currentDateInMinutes = currentDate!!.time/ 60000
+
+                val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+
+                tvSelectedDateInMinutes.setText(differenceInMinutes.toString())
+
             }
             ,year
             ,month
