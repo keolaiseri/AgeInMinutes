@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import android.widget.Button
 import android.widget.TextView
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
                 tvSelectedDate.setText(selectedDate)
 
+                val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
             }
             ,year
             ,month
